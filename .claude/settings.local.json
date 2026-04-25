@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py --version)",
+      "Bash(where python *)",
+      "Read(//c//**)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(ELECTRON_BUILDER_BINARIES_MIRROR=https://registry.npmmirror.com/-/binary/electron-builder-binaries/ npx electron-builder --dir)",
+      "Bash(mkdir -p \"/c/Users/Administrator/AppData/Local/electron-builder/Cache/winCodeSign\")",
+      "Bash(curl -L -o \"/tmp/winCodeSign.7z\" \"https://registry.npmmirror.com/-/binary/electron-builder-binaries/winCodeSign-2.6.0/winCodeSign-2.6.0.7z\")",
+      "Read(//tmp/**)",
+      "Bash(cmd //c \"mkdir \\\\\"%LOCALAPPDATA%\\\\\\\\electron-builder\\\\\\\\Cache\\\\\\\\winCodeSign\\\\\" 2>nul & echo done\")",
+      "Bash(cmd //c \"mkdir \\\\\"%LOCALAPPDATA%\\\\\\\\electron-builder\\\\\\\\Cache\\\\\\\\winCodeSign\\\\\"\")",
+      "Bash(powershell -Command 'New-Item -ItemType Directory -Force -Path \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\" | Out-Null; Write-Host '\\\\''ok'\\\\''')",
+      "Bash(powershell -Command 'Invoke-WebRequest -Uri '\\\\''https://registry.npmmirror.com/-/binary/electron-builder-binaries/winCodeSign-2.6.0/winCodeSign-2.6.0.7z'\\\\'' -OutFile \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\winCodeSign-2.6.0.7z\" -UseBasicParsing; Write-Host '\\\\''done'\\\\''')",
+      "Bash(powershell -Command '$7za = '\\\\''e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\node_modules\\\\7zip-bin\\\\win\\\\x64\\\\7za.exe'\\\\''; $src = \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\winCodeSign-2.6.0.7z\"; & $7za x $src '\\\\''-oC:\\\\temp_wcs'\\\\'' -y '\\\\''-xr!darwin'\\\\'' | Select-Object -Last 10')",
+      "Bash(powershell -Command '$dest = \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\404852827\"; New-Item -ItemType Directory -Force -Path $dest | Out-Null; Copy-Item -Path '\\\\''C:\\\\temp_wcs\\\\*'\\\\'' -Destination $dest -Recurse -Force; Rename-Item -Path \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\winCodeSign-2.6.0.7z\" -NewName '\\\\''404852827.7z'\\\\'' -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\" | Select-Object Name, Length')",
+      "Bash(powershell -Command 'Get-ChildItem \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\404852827\" -Recurse | Select-Object -First 20 | ForEach-Object { $_.FullName }')",
+      "Bash(dir e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\dist-electron)",
+      "Bash(dir e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\dist)"
+    ]
+  }
+}

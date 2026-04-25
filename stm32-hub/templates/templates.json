@@ -1,0 +1,32 @@
+{
+  "$schema": "STM32-Hub IOC Templates v1",
+  "templates": [
+    {
+      "id": "stm32f103c8t6",
+      "name": "STM32F103C8T6 (BluePill)",
+      "mcu": "STM32F103C8Tx",
+      "package": "LQFP48",
+      "family": "STM32F1",
+      "summary": "经典蓝色 BluePill，HSE 8MHz → PLL ×9 → 72MHz",
+      "file": "stm32f103c8t6.ioc"
+    },
+    {
+      "id": "stm32f411ceu6",
+      "name": "STM32F411CEU6 (BlackPill)",
+      "mcu": "STM32F411CEUx",
+      "package": "UFQFPN48",
+      "family": "STM32F4",
+      "summary": "BlackPill 黑板，HSE 25MHz → PLL → 96MHz",
+      "file": "stm32f411ceu6.ioc"
+    },
+    {
+      "id": "stm32f407zgt6",
+      "name": "STM32F407ZGT6 (探索者F4)",
+      "mcu": "STM32F407ZGTx",
+      "package": "LQFP144",
+      "family": "STM32F4",
+      "summary": "正点原子探索者，HSE 8MHz → PLL → 168MHz",
+      "file": "stm32f407zgt6.ioc"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "stm32-hub",
+  "version": "0.5.0",
+  "description": "Lightweight STM32 project dashboard: Keil + VSCode+CMake + CubeMX + Git + DeepSeek AI",
+  "main": "dist-electron/main.js",
+  "author": "congq",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build && electron-builder --dir",
+    "dist": "vue-tsc --noEmit && vite build && electron-builder",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.2",
+    "electron-store": "^8.2.0",
+    "serialport": "^12.0.0",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "echarts": "^5.6.0",
+    "echarts-gl": "^2.0.9",
+    "electron": "^32.1.2",
+    "electron-builder": "^25.0.5",
+    "naive-ui": "^2.40.1",
+    "pinia": "^2.2.4",
+    "typescript": "^5.6.2",
+    "vfonts": "^0.0.3",
+    "vite": "^5.4.8",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vue": "^3.5.10",
+    "vue-echarts": "^8.0.1",
+    "vue-router": "^4.4.5",
+    "vue-tsc": "^2.1.6",
+    "xlsx": "^0.18.5"
+  }
+}

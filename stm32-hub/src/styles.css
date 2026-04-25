@@ -1,0 +1,136 @@
+/* ============================================================
+   STM32 Hub — Global design tokens
+   ============================================================ */
+:root {
+  /* Surfaces */
+  --bg-app:      #0f1014;
+  --bg-side:     #0b0c10;
+  --bg-panel:    #181920;
+  --bg-panel-2:  #1e1f27;
+  --bg-hover:    #23242d;
+  --bg-active:   #262832;
+
+  /* Borders */
+  --border:       #262832;
+  --border-soft:  #1f2029;
+  --border-hi:    #323442;
+
+  /* Text */
+  --text:         #e7e8ef;
+  --text-strong:  #f5f6fa;
+  --text-muted:   #9395a2;
+  --text-dim:     #5c5e6a;
+
+  /* Accents */
+  --accent:        #3b82f6;   /* refined blue */
+  --accent-hover:  #60a5fa;
+  --accent-soft:   #1e3a8a33;
+  --success:       #22c55e;
+  --warning:       #f59e0b;
+  --error:         #ef4444;
+  --info:          #38bdf8;
+  --purple:        #a855f7;
+  --pink:          #ec4899;
+
+  /* Radius & shadow */
+  --r-sm: 4px;
+  --r:    8px;
+  --r-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.35);
+  --shadow:    0 4px 16px rgba(0,0,0,.35);
+  --shadow-lg: 0 14px 40px rgba(0,0,0,.55);
+
+  /* Spacing */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+
+  /* Typography */
+  --font-ui:   'Inter', 'Lato', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+html, body, #app { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.mono { font-family: var(--font-mono); font-feature-settings: 'liga' 0, 'calt' 0; }
+.scroll-y { overflow-y: auto; }
+
+/* Selection */
+::selection { background: var(--accent-soft); color: var(--text-strong); }
+
+/* Scrollbar (dark) */
+::-webkit-scrollbar         { width: 10px; height: 10px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: #2d2f3a; border-radius: 5px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: #3b3e4c; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-corner  { background: transparent; }
+
+/* Shared reusable panel */
+.panel-base {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+
+/* Page header shared across views */
+.page-hdr {
+  padding: 22px 28px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.page-hdr h2 {
+  margin: 0;
+  font-weight: 650;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--text-strong);
+}
+.page-hdr .sub {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  margin-left: 10px;
+}
+
+/* Section block (detail pane / settings) */
+.block {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+}
+.block-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.block-hdr h3 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: 0.01em;
+}
+
+/* Smooth transitions for buttons, cards */
+.n-button, .n-card, .n-tag {
+  transition: all 0.15s ease;
+}
