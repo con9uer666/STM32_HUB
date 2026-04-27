@@ -1,0 +1,6 @@
+{
+  "title": "第 7 节 · 把搬运交给硬件：串口 DMA（不定长接收）",
+  "summary": "用 DMA 和空闲中断处理高吞吐、不定长串口数据，降低 CPU 负担。",
+  "tags": ["UART", "DMA"],
+  "estimatedMinutes": 18
+}

@@ -1,0 +1,6 @@
+{
+  "title": "第 1 节 · 嵌入式的 Hello World：点亮一只 LED",
+  "summary": "用 PC13 跑通最小可验证工程，建立工程、编译、下载与现象之间的联系。",
+  "tags": ["GPIO", "LED"],
+  "estimatedMinutes": 10
+}

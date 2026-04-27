@@ -16,6 +16,10 @@ extraResources:
     to: tutorials
     filter:
       - "**/*"
+  - from: docs
+    to: docs
+    filter:
+      - "**/*"
   - from: templates
     to: templates
     filter:

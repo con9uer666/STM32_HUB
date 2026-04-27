@@ -1,0 +1,6 @@
+{
+  "title": "第 9 节 · 先约定时钟再传数据：SPI",
+  "summary": "理解 SPI 的片选、时钟模式和高速收发特点，建立最基础的调试思路。",
+  "tags": ["SPI", "通信"],
+  "estimatedMinutes": 15
+}

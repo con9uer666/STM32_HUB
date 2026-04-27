@@ -1,0 +1,6 @@
+{
+  "title": "第 3 节 · 现代 STM32 工具链：CMake + VS Code",
+  "summary": "了解 ARM GCC、CMake、Ninja 与 VS Code 的分工，搭好更现代的工程工作流。",
+  "tags": ["CMake", "VS Code", "GCC"],
+  "estimatedMinutes": 15
+}

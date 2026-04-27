@@ -1,0 +1,6 @@
+{
+  "title": "第 1 节 · 图形化外设配置：CubeMX",
+  "summary": "学会创建 STM32 工程，配置引脚、时钟和常用代码生成选项。",
+  "tags": ["CubeMX", "配置"],
+  "estimatedMinutes": 12
+}

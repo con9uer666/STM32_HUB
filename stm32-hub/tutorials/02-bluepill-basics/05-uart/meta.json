@@ -1,0 +1,6 @@
+{
+  "title": "第 5 节 · 让芯片开口说话：串口",
+  "summary": "打通最基础的串口收发链路，用 UART 建立最重要的调试窗口。",
+  "tags": ["UART", "串口"],
+  "estimatedMinutes": 12
+}

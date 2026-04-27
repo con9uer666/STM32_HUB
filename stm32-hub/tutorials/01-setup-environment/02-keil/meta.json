@@ -1,0 +1,6 @@
+{
+  "title": "第 2 节 · 传统且稳定的编译器：Keil",
+  "summary": "掌握 Keil 工程导入、编译下载和基础调试，先把最稳的流程跑通。",
+  "tags": ["Keil", "编译", "调试"],
+  "estimatedMinutes": 12
+}

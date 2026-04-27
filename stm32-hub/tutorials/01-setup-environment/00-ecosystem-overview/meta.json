@@ -1,0 +1,6 @@
+{
+  "title": "第 0 节 · 与嵌入式接轨：主流环境介绍",
+  "summary": "先理清 CubeMX、Keil、GCC、VS Code 与下载器之间的分工。",
+  "tags": ["环境", "工具链"],
+  "estimatedMinutes": 8
+}

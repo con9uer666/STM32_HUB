@@ -1,0 +1,7 @@
+{
+  "title": "第四章 · 进阶：玩转 C 板 / 喵板",
+  "summary": "进入更贴近控制项目的硬件平台，学习 CAN、电机、IMU 与 RTOS 的协同开发。",
+  "tags": ["控制板", "CAN", "RTOS"],
+  "estimatedMinutes": 12,
+  "icon": "🤖"
+}
