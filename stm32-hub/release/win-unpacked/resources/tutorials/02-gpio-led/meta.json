@@ -1,0 +1,7 @@
+{
+  "title": "第 2 章 · GPIO：让 LED 闪起来",
+  "summary": "用 HAL 库配置一根 GPIO，实现经典的 LED 闪烁工程。",
+  "tags": ["GPIO", "HAL"],
+  "estimatedMinutes": 20,
+  "icon": "💡"
+}

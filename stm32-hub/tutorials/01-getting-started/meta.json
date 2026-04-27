@@ -1,0 +1,7 @@
+{
+  "title": "第 1 章 · 入门：搭好开发环境",
+  "summary": "认识 STM32、安装 CubeMX/Keil/VSCode、点亮第一颗 LED 之前要做的准备。",
+  "tags": ["入门", "环境"],
+  "estimatedMinutes": 15,
+  "icon": "🚀"
+}

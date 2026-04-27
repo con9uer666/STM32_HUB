@@ -1,5 +1,16 @@
 import type { Project, HubSettings, ToolPaths } from '@/types'
 
+interface TutorialNode {
+  id: string
+  title: string
+  summary?: string
+  tags?: string[]
+  estimatedMinutes?: number
+  icon?: string
+  hasContent: boolean
+  children?: TutorialNode[]
+}
+
 interface HubApi {
   dialog: {
     openDirectory: () => Promise<string | null>
@@ -37,7 +48,7 @@ interface HubApi {
     list: () => Promise<{ ok: boolean; error?: string; index?: {
       title?: string
       subtitle?: string
-      chapters: Array<{ id: string; title: string; summary?: string; tags?: string[]; estimatedMinutes?: number }>
+      tree: TutorialNode[]
     }; root?: string }>
     load: (chapterId: string) => Promise<{ ok: boolean; error?: string; chapter?: {
       meta: { id: string; title: string; summary?: string; tags?: string[]; estimatedMinutes?: number }
