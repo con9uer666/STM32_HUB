@@ -18,7 +18,22 @@
       "Bash(powershell -Command '$dest = \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\404852827\"; New-Item -ItemType Directory -Force -Path $dest | Out-Null; Copy-Item -Path '\\\\''C:\\\\temp_wcs\\\\*'\\\\'' -Destination $dest -Recurse -Force; Rename-Item -Path \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\winCodeSign-2.6.0.7z\" -NewName '\\\\''404852827.7z'\\\\'' -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\" | Select-Object Name, Length')",
       "Bash(powershell -Command 'Get-ChildItem \"$env:LOCALAPPDATA\\\\electron-builder\\\\Cache\\\\winCodeSign\\\\404852827\" -Recurse | Select-Object -First 20 | ForEach-Object { $_.FullName }')",
       "Bash(dir e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\dist-electron)",
-      "Bash(dir e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\dist)"
+      "Bash(dir e:\\\\PROJECTS\\\\MY_ASSISTANT\\\\stm32-hub\\\\dist)",
+      "Bash(set NPM_CONFIG_REGISTRY=https://registry.npmmirror.com)",
+      "Bash(cd /d \"e:\\\\PROJECTS\\\\MY_ASSISTANT\")",
+      "Bash(gh auth *)",
+      "Bash(gh release *)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" remote -v)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" status --short)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" log --oneline -5)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" lfs ls-files)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" check-ignore -v \"stm32-hub/release/STM32 Hub-1.0.0-x64.zip\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" ls-files \"stm32-hub/release/\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" check-ignore -v \".claude/settings.json\" \".claude/settings.local.json\" \"stm32-hub/node_modules/.vite/deps/\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" ls-files \".claude/\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" ls-files \"stm32-hub/dist/\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" ls-files \"stm32-hub/node_modules/\")",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" ls-files \"stm32-hub/node_modules/.vite/\")"
     ]
   }
 }

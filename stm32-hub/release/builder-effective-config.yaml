@@ -1,0 +1,51 @@
+directories:
+  output: release
+  buildResources: resources
+appId: com.congq.stm32hub
+productName: STM32 Hub
+copyright: Copyright 2026
+files:
+  - filter:
+      - dist/**/*
+      - dist-electron/**/*
+      - package.json
+extraResources:
+  - from: tutorials
+    to: tutorials
+    filter:
+      - '**/*'
+  - from: docs
+    to: docs
+    filter:
+      - '**/*'
+  - from: templates
+    to: templates
+    filter:
+      - '**/*'
+asar: true
+asarUnpack:
+  - node_modules/@serialport/**/*
+  - node_modules/serialport/**/*
+  - node_modules/node-gyp-build/**/*
+  - node_modules/bindings/**/*
+compression: maximum
+electronDist: node_modules/electron/dist
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: zip
+      arch:
+        - x64
+  icon: resources/icon.ico
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  signAndEditExecutable: false
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: STM32 Hub
+electronVersion: 32.3.3
