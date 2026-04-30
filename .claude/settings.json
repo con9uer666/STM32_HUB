@@ -6,7 +6,10 @@
       "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" add \"stm32-hub/package.json\" \"stm32-hub/src/utils/markdown.ts\" \".claude/settings.json\" \".claude/settings.local.json\")",
       "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" diff --cached --stat)",
       "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" rm -r --cached \"stm32-hub/node_modules/.vite/deps_temp_99dfdce0\")",
-      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" add \".claude/settings.json\")"
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" add \".claude/settings.json\")",
+      "Bash(git -C e:/PROJECTS/MY_ASSISTANT commit -m ' *)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" log --oneline -3)",
+      "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" push origin main)"
     ]
   }
 }

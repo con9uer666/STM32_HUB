@@ -1,1 +1,85 @@
-"use strict";const i=require("electron"),c={dialog:{openDirectory:()=>i.ipcRenderer.invoke("dialog:open-directory"),openFile:e=>i.ipcRenderer.invoke("dialog:open-file",e)},shell:{openExternal:e=>i.ipcRenderer.invoke("shell:open-external",e),openPath:e=>i.ipcRenderer.invoke("shell:open-path",e),showInFolder:e=>i.ipcRenderer.invoke("shell:show-in-folder",e),openTerminal:e=>i.ipcRenderer.invoke("shell:open-terminal",e)},settings:{getAll:()=>i.ipcRenderer.invoke("settings:get-all"),set:(e,r)=>i.ipcRenderer.invoke("settings:set",e,r),detectTools:()=>i.ipcRenderer.invoke("settings:detect-tools")},project:{scan:(e,r)=>i.ipcRenderer.invoke("project:scan",e,r),inspect:e=>i.ipcRenderer.invoke("project:inspect",e),list:()=>i.ipcRenderer.invoke("project:list"),upsert:e=>i.ipcRenderer.invoke("project:upsert",e),remove:e=>i.ipcRenderer.invoke("project:remove",e),readReadme:e=>i.ipcRenderer.invoke("project:read-readme",e),summarizeFiles:e=>i.ipcRenderer.invoke("project:summarize-files",e),stats:e=>i.ipcRenderer.invoke("project:stats",e),create:e=>i.ipcRenderer.invoke("project:create",e),copyCubemx:e=>i.ipcRenderer.invoke("project:copy-cubemx",e),listTemplates:()=>i.ipcRenderer.invoke("project:list-templates")},tutorial:{list:()=>i.ipcRenderer.invoke("tutorial:list"),load:e=>i.ipcRenderer.invoke("tutorial:load",e),root:()=>i.ipcRenderer.invoke("tutorial:root")},launcher:{openInKeil:e=>i.ipcRenderer.invoke("launcher:keil",e),openInVSCode:e=>i.ipcRenderer.invoke("launcher:vscode",e),openInCubeMX:e=>i.ipcRenderer.invoke("launcher:cubemx",e)},git:{status:e=>i.ipcRenderer.invoke("git:status",e),log:(e,r)=>i.ipcRenderer.invoke("git:log",e,r),commitDetail:(e,r)=>i.ipcRenderer.invoke("git:commit-detail",e,r),fileDiff:(e,r,n)=>i.ipcRenderer.invoke("git:file-diff",e,r,n),tree:e=>i.ipcRenderer.invoke("git:tree",e),remoteInfo:e=>i.ipcRenderer.invoke("git:remote-info",e),commitAndPush:(e,r)=>i.ipcRenderer.invoke("git:commit-push",e,r),fetch:e=>i.ipcRenderer.invoke("git:fetch",e),pull:e=>i.ipcRenderer.invoke("git:pull",e),batchStatus:e=>i.ipcRenderer.invoke("git:batch-status",e),batchFetch:e=>i.ipcRenderer.invoke("git:batch-fetch",e),fetchRepoMeta:(e,r)=>i.ipcRenderer.invoke("git:github-meta",e,r)},build:{cmake:e=>i.ipcRenderer.invoke("build:cmake",e),keil:e=>i.ipcRenderer.invoke("build:keil",e),cancel:()=>i.ipcRenderer.invoke("build:cancel")},ai:{generateDescription:e=>i.ipcRenderer.invoke("ai:generate",e)},stats:{aggregate:e=>i.ipcRenderer.invoke("stats:aggregate",e),commitHistory:(e,r)=>i.ipcRenderer.invoke("stats:commit-history",e,r)},serial:{list:()=>i.ipcRenderer.invoke("serial:list"),open:e=>i.ipcRenderer.invoke("serial:open",e),close:()=>i.ipcRenderer.invoke("serial:close"),write:e=>i.ipcRenderer.invoke("serial:write",{bytes:e}),status:()=>i.ipcRenderer.invoke("serial:status"),setSignals:e=>i.ipcRenderer.invoke("serial:set-signals",e)},on:(e,r)=>{if(!["build:output","build:exit","serial:data","serial:error","serial:closed"].includes(e))return()=>{};const t=(p,...o)=>r(...o);return i.ipcRenderer.on(e,t),()=>i.ipcRenderer.removeListener(e,t)}};i.contextBridge.exposeInMainWorld("api",c);
+"use strict";
+const electron = require("electron");
+const api = {
+  dialog: {
+    openDirectory: () => electron.ipcRenderer.invoke("dialog:open-directory"),
+    openFile: (filters) => electron.ipcRenderer.invoke("dialog:open-file", filters)
+  },
+  shell: {
+    openExternal: (url) => electron.ipcRenderer.invoke("shell:open-external", url),
+    openPath: (p) => electron.ipcRenderer.invoke("shell:open-path", p),
+    showInFolder: (p) => electron.ipcRenderer.invoke("shell:show-in-folder", p),
+    openTerminal: (cwd) => electron.ipcRenderer.invoke("shell:open-terminal", cwd)
+  },
+  settings: {
+    getAll: () => electron.ipcRenderer.invoke("settings:get-all"),
+    set: (key, value) => electron.ipcRenderer.invoke("settings:set", key, value),
+    detectTools: () => electron.ipcRenderer.invoke("settings:detect-tools")
+  },
+  project: {
+    scan: (root, depth) => electron.ipcRenderer.invoke("project:scan", root, depth),
+    inspect: (path) => electron.ipcRenderer.invoke("project:inspect", path),
+    list: () => electron.ipcRenderer.invoke("project:list"),
+    upsert: (project) => electron.ipcRenderer.invoke("project:upsert", project),
+    remove: (id) => electron.ipcRenderer.invoke("project:remove", id),
+    readReadme: (path) => electron.ipcRenderer.invoke("project:read-readme", path),
+    summarizeFiles: (path) => electron.ipcRenderer.invoke("project:summarize-files", path),
+    stats: (path) => electron.ipcRenderer.invoke("project:stats", path),
+    create: (args) => electron.ipcRenderer.invoke("project:create", args),
+    copyCubemx: (args) => electron.ipcRenderer.invoke("project:copy-cubemx", args),
+    listTemplates: () => electron.ipcRenderer.invoke("project:list-templates")
+  },
+  tutorial: {
+    list: () => electron.ipcRenderer.invoke("tutorial:list"),
+    load: (chapterId) => electron.ipcRenderer.invoke("tutorial:load", chapterId),
+    root: () => electron.ipcRenderer.invoke("tutorial:root")
+  },
+  launcher: {
+    openInKeil: (uvprojx) => electron.ipcRenderer.invoke("launcher:keil", uvprojx),
+    openInVSCode: (folder) => electron.ipcRenderer.invoke("launcher:vscode", folder),
+    openInCubeMX: (ioc) => electron.ipcRenderer.invoke("launcher:cubemx", ioc)
+  },
+  git: {
+    status: (repo) => electron.ipcRenderer.invoke("git:status", repo),
+    log: (repo, limit) => electron.ipcRenderer.invoke("git:log", repo, limit),
+    commitDetail: (repo, hash) => electron.ipcRenderer.invoke("git:commit-detail", repo, hash),
+    fileDiff: (repo, path, ref) => electron.ipcRenderer.invoke("git:file-diff", repo, path, ref),
+    tree: (repo) => electron.ipcRenderer.invoke("git:tree", repo),
+    remoteInfo: (repo) => electron.ipcRenderer.invoke("git:remote-info", repo),
+    commitAndPush: (repo, message) => electron.ipcRenderer.invoke("git:commit-push", repo, message),
+    fetch: (repo) => electron.ipcRenderer.invoke("git:fetch", repo),
+    pull: (repo) => electron.ipcRenderer.invoke("git:pull", repo),
+    batchStatus: (repos) => electron.ipcRenderer.invoke("git:batch-status", repos),
+    batchFetch: (repos) => electron.ipcRenderer.invoke("git:batch-fetch", repos),
+    fetchRepoMeta: (owner, name) => electron.ipcRenderer.invoke("git:github-meta", owner, name)
+  },
+  build: {
+    cmake: (repo) => electron.ipcRenderer.invoke("build:cmake", repo),
+    keil: (uvprojx) => electron.ipcRenderer.invoke("build:keil", uvprojx),
+    cancel: () => electron.ipcRenderer.invoke("build:cancel")
+  },
+  ai: {
+    generateDescription: (payload) => electron.ipcRenderer.invoke("ai:generate", payload)
+  },
+  stats: {
+    aggregate: (paths) => electron.ipcRenderer.invoke("stats:aggregate", paths),
+    commitHistory: (paths, days) => electron.ipcRenderer.invoke("stats:commit-history", paths, days)
+  },
+  serial: {
+    list: () => electron.ipcRenderer.invoke("serial:list"),
+    open: (cfg) => electron.ipcRenderer.invoke("serial:open", cfg),
+    close: () => electron.ipcRenderer.invoke("serial:close"),
+    write: (bytes) => electron.ipcRenderer.invoke("serial:write", { bytes }),
+    status: () => electron.ipcRenderer.invoke("serial:status"),
+    setSignals: (signals) => electron.ipcRenderer.invoke("serial:set-signals", signals)
+  },
+  on: (channel, cb) => {
+    const allowed = ["build:output", "build:exit", "serial:data", "serial:error", "serial:closed"];
+    if (!allowed.includes(channel)) return () => {
+    };
+    const wrapped = (_e, ...args) => cb(...args);
+    electron.ipcRenderer.on(channel, wrapped);
+    return () => electron.ipcRenderer.removeListener(channel, wrapped);
+  }
+};
+electron.contextBridge.exposeInMainWorld("api", api);
