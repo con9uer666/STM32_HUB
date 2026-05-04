@@ -1,5 +1,5 @@
 {
-  "title": "第 3 节 · 先用误差闭环：PID",
+  "title": "第 3 节 PID",
   "summary": "理解 PID 三个分量的直觉含义，掌握位置式 PID 的完整实现、调参顺序和常见保护措施。",
   "tags": ["PID", "闭环控制", "调参"],
   "estimatedMinutes": 25
