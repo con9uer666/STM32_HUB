@@ -1,0 +1,14 @@
+[
+    { 
+    "title": "CSDN PID", 
+    "url": "stm32-hub/tutorials/02-bluepill-basics/01-led/videos.json"
+    },
+    { 
+    "title": "华南虎教程 PID", 
+    "url": "https://www.bilibili.com/video/BV1B54y1V7hp?spm_id_from=333.788.recommend_more_video.-1&trackid=web_related_0.router-related-2479604-t4rlm.1777894983416.488&vd_source=f79c4fb3a87fdbf0344788af617382f9"
+    },
+    { 
+    "title": "学会基础后必看！前馈", 
+    "url": "https://www.bilibili.com/video/BV19T411t7du/?spm_id_from=333.337.search-card.all.click"
+    }
+]
