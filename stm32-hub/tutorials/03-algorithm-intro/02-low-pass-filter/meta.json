@@ -1,0 +1,6 @@
+{
+  "title": "第 2 节 · 先压掉高频噪声：低通滤波器",
+  "summary": "理解传感器数据为什么不能直接用，掌握一阶低通滤波的原理、alpha 参数计算和 STM32 实现。",
+  "tags": ["低通滤波", "LPF", "alpha"],
+  "estimatedMinutes": 15
+}

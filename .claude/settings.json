@@ -10,7 +10,10 @@
       "Bash(git -C e:/PROJECTS/MY_ASSISTANT commit -m ' *)",
       "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" log --oneline -3)",
       "Bash(git -C \"e:/PROJECTS/MY_ASSISTANT\" push origin main)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(python -c \"import matplotlib; print\\('matplotlib', matplotlib.__version__\\)\")",
+      "Bash(python -c \"import numpy; print\\('numpy', numpy.__version__\\)\")",
+      "Bash(C:/Users/congq/AppData/Local/Microsoft/WindowsApps/python.exe --version)"
     ]
   }
 }
