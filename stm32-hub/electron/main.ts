@@ -10,6 +10,7 @@ import { registerSettingsIpc } from './ipc/settings'
 import { registerShellExtraIpc } from './ipc/shell-extra'
 import { registerSerialIpc, teardownSerial } from './ipc/serial'
 import { registerTutorialIpc } from './ipc/tutorial'
+import { registerTutorialUpdateIpc, silentCheckUpdate } from './ipc/tutorial-update'
 
 // Privileged scheme registration must happen BEFORE app is ready,
 // so the renderer can <img src="tut:///...">.
@@ -88,7 +89,11 @@ app.whenReady().then(() => {
   registerShellExtraIpc()
   registerSerialIpc(() => mainWindow)
   registerTutorialIpc()
+  registerTutorialUpdateIpc()
   createWindow()
+
+  // Check for tutorial updates silently after startup
+  silentCheckUpdate()
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()

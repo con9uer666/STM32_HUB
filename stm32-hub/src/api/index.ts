@@ -57,6 +57,8 @@ interface HubApi {
       videos: Array<{ title: string; url: string; duration?: string }>
     } }>
     root: () => Promise<string>
+    checkUpdate: () => Promise<{ ok: boolean; error?: string; hasUpdate: boolean; remoteSha?: string; localSha?: string | null }>
+    doUpdate: () => Promise<{ ok: boolean; error?: string; sha?: string }>
   }
   launcher: {
     openInKeil: (uvprojx: string) => Promise<{ ok: boolean; error?: string }>

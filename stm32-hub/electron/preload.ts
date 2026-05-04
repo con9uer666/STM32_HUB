@@ -35,7 +35,9 @@ const api = {
   tutorial: {
     list: () => ipcRenderer.invoke('tutorial:list'),
     load: (chapterId: string) => ipcRenderer.invoke('tutorial:load', chapterId),
-    root: () => ipcRenderer.invoke('tutorial:root')
+    root: () => ipcRenderer.invoke('tutorial:root'),
+    checkUpdate: () => ipcRenderer.invoke('tutorial:check-update'),
+    doUpdate: () => ipcRenderer.invoke('tutorial:do-update')
   },
   launcher: {
     openInKeil: (uvprojx: string) => ipcRenderer.invoke('launcher:keil', uvprojx),

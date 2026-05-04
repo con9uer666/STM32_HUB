@@ -1,0 +1,6 @@
+{
+  "title": "第 0 节 · 认识小蓝板（STM32F103C8T6）",
+  "summary": "认识小蓝板的核心资源、常用引脚和最基础的供电下载方式。",
+  "tags": ["BluePill", "硬件"],
+  "estimatedMinutes": 10
+}

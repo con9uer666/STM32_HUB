@@ -10,6 +10,19 @@
           <template #prefix>🔍</template>
         </n-input>
         <n-button quaternary @click="refresh">↻ 刷新</n-button>
+        <n-button
+          :type="updateStatus === 'has-update' ? 'warning' : 'default'"
+          :loading="updateStatus === 'checking' || updateStatus === 'downloading'"
+          quaternary
+          @click="onUpdateClick"
+        >
+          <template v-if="updateStatus === 'checking'">检查中...</template>
+          <template v-else-if="updateStatus === 'has-update'">⬆ 有新版本</template>
+          <template v-else-if="updateStatus === 'downloading'">下载中...</template>
+          <template v-else-if="updateStatus === 'up-to-date'">✓ 已是最新</template>
+          <template v-else-if="updateStatus === 'error'">⚠ 更新失败</template>
+          <template v-else>检查更新</template>
+        </n-button>
       </n-space>
     </header>
 
@@ -124,6 +137,10 @@ const activeId = ref('')
 const current = ref<ChapterContent | null>(null)
 const search = ref('')
 const expanded = ref<Set<string>>(new Set())
+
+type UpdateStatus = 'idle' | 'checking' | 'has-update' | 'downloading' | 'up-to-date' | 'error'
+const updateStatus = ref<UpdateStatus>('idle')
+const updateError = ref('')
 
 function nodeMatches(n: ChapterNode, q: string): boolean {
   return (
@@ -269,10 +286,48 @@ function onArticleClick(e: MouseEvent) {
   }
 }
 
+async function checkUpdate() {
+  updateStatus.value = 'checking'
+  const r = await api.tutorial.checkUpdate()
+  if (!r.ok) {
+    updateStatus.value = 'error'
+    updateError.value = r.error || '检查失败'
+    msg.error(updateError.value)
+    return
+  }
+  updateStatus.value = r.hasUpdate ? 'has-update' : 'up-to-date'
+  if (r.hasUpdate) msg.info('发现新版本教程，点击按钮更新')
+  if (!r.hasUpdate) setTimeout(() => { updateStatus.value = 'idle' }, 3000)
+}
+
+async function doUpdate() {
+  updateStatus.value = 'downloading'
+  const r = await api.tutorial.doUpdate()
+  if (!r.ok) {
+    updateStatus.value = 'error'
+    updateError.value = r.error || '下载失败'
+    msg.error(updateError.value)
+    return
+  }
+  msg.success('教程已更新到最新版本')
+  updateStatus.value = 'up-to-date'
+  await refresh()
+  setTimeout(() => { updateStatus.value = 'idle' }, 3000)
+}
+
+async function onUpdateClick() {
+  if (updateStatus.value === 'has-update') {
+    await doUpdate()
+  } else if (updateStatus.value !== 'checking' && updateStatus.value !== 'downloading') {
+    await checkUpdate()
+  }
+}
+
 watch(search, () => { /* trigger re-render via computed */ })
 
 onMounted(() => {
   refresh()
+  checkUpdate()
 })
 </script>
 

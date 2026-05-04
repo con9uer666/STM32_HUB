@@ -46,7 +46,14 @@ const HIDDEN_RE = /^[._]/
 // Folders/files we never treat as tutorial nodes
 const SKIP_NAMES = new Set(['node_modules', 'dist', '.git'])
 
-function tutorialsRoot(): string {
+export function tutorialsRoot(): string {
+  // Prefer user-downloaded tutorials (from GitHub update) over bundled ones
+  const userDir = path.join(app.getPath('userData'), 'tutorials')
+  try {
+    const entries = fs.readdirSync(userDir)
+    if (entries.length > 0) return userDir
+  } catch { /* doesn't exist yet — fall through */ }
+
   if (app.isPackaged) {
     return path.join(process.resourcesPath, 'tutorials')
   }

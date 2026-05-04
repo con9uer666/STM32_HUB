@@ -54,6 +54,15 @@
         />
         <p class="tip">仅用于只读元数据（stars/issues/languages）。推送仍走本地 git 凭证。</p>
       </div>
+      <div class="field" style="margin-top: 12px">
+        <label>GitHub API 代理/镜像</label>
+        <n-input
+          :value="(s as any).githubProxy"
+          placeholder="留空使用 api.github.com，国内可填 https://ghproxy.com/https://api.github.com"
+          @update:value="v => set('githubProxy', v)"
+        />
+        <p class="tip">用于教程在线更新。如果直连 GitHub 不稳定，可配置代理地址。</p>
+      </div>
     </section>
 
     <section class="s-block">

@@ -43,8 +43,11 @@ export interface HubSettings {
   aiModel: string
   githubAuthMode: 'local' | 'pat'
   githubPat?: string
+  githubProxy?: string
   theme: 'dark' | 'light'
   scanDepth: number
+  tutorialUpdateSha?: string
+  tutorialUpdateTime?: number
 }
 
 interface Schema {
